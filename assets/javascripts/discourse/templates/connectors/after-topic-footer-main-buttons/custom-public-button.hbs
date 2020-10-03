@@ -1,0 +1,32 @@
+{{!--
+Author: Lindsey Tam
+Date: June 18 2020
+Description: This script handles the UI of the button
+ --}}
+
+{{!-- ensure only admin can see the button --}}
+{{#if currentUser.can_see_topic_group_button }}
+
+  {{!--  If a post is marked, the button should have the following attributes  --}}
+  {{#if topic.topic_marked}}
+    {{d-button class="btn-primary custom-topic-button"
+        translatedTitle="This is a marked post. Click to unmark it."
+        icon="check"
+        id="custom-button"
+        action="clickButton"
+        actionParam=topic
+        translatedLabel="Marked"}}
+
+  {{!--  If a post is NOT marked, the button should have the following attributes  --}}
+  {{else}}
+    {{d-button class="btn custom-topic-button"
+        translatedTitle="This is not a marked post. Click to mark it."
+        icon="times"
+        id="custom-button"
+        action="clickButton"
+        actionParam=topic
+        translatedLabel="Unmarked"}}
+  {{/if}}
+{{/if}}
+
+
